@@ -14,6 +14,7 @@ const getSingleBlogRoute = require("./routes/getSingleBlog");
 const likeBlogRoute = require("./routes/likeBlog");
 const unLikeBlogRoute = require("./routes/unLikeBlog");
 const deleteBlogRoute = require("./routes/deleteBlog");
+const getLikedBlogsRoute = require("./routes/getLikedBlogs");
 dotenv.config();
 
 mongoose.connect(process.env.DB_CONNECT, {
@@ -33,5 +34,6 @@ app.use("/api/blog/get", getSingleBlogRoute);
 app.use("/api/blog/like", likeBlogRoute);
 app.use("/api/blog/unlike", unLikeBlogRoute);
 app.use("/api/blog/delete", deleteBlogRoute);
+app.use("/api/blog/get/liked", getLikedBlogsRoute);
 
 app.listen(PORT, () => console.log("server running on port 5000"));
