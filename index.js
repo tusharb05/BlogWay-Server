@@ -8,6 +8,7 @@ const app = express();
 
 const registerRoute = require("./routes/register");
 const loginRoute = require("./routes/login");
+const createBlogRoute = require("./routes/createBlog");
 dotenv.config();
 
 mongoose.connect(process.env.DB_CONNECT, {
@@ -21,5 +22,6 @@ app.use(express.json());
 
 app.use("/api/user/register", registerRoute);
 app.use("/api/user/login", loginRoute);
+app.use("/api/blog/create", createBlogRoute);
 
 app.listen(PORT, () => console.log("server running on port 5000"));
