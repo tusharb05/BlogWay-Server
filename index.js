@@ -10,6 +10,7 @@ const registerRoute = require("./routes/register");
 const loginRoute = require("./routes/login");
 const createBlogRoute = require("./routes/createBlog");
 const getAllBlogsRoute = require("./routes/getAllBlogs");
+const getSingleBlogRoute = require("./routes/getSingleBlog");
 dotenv.config();
 
 mongoose.connect(process.env.DB_CONNECT, {
@@ -25,5 +26,6 @@ app.use("/api/user/register", registerRoute);
 app.use("/api/user/login", loginRoute);
 app.use("/api/blog/create", createBlogRoute);
 app.use("/api/blog/get/all", getAllBlogsRoute);
+app.use("/api/blog/get", getSingleBlogRoute);
 
 app.listen(PORT, () => console.log("server running on port 5000"));
