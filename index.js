@@ -18,6 +18,7 @@ const getLikedBlogsRoute = require("./routes/getLikedBlogs");
 const getComposedBlogsRoute = require("./routes/getComposedBlogs");
 const getUserDetailsRoute = require("./routes/getUserDetails");
 const addCommentRoute = require("./routes/addComment");
+const getCommentsRoute = require("./routes/getComments");
 
 dotenv.config();
 
@@ -42,5 +43,5 @@ app.use("/api/blog/get/liked", getLikedBlogsRoute);
 app.use("/api/blog/get/composed", getComposedBlogsRoute);
 app.use("/api/user/get/data", getUserDetailsRoute);
 app.use("/api/blog/comment/add", addCommentRoute);
-
+app.use("/api/blog/comment/get", getCommentsRoute);
 app.listen(PORT, () => console.log("server running on port 5000"));
