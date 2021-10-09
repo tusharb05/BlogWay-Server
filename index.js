@@ -20,6 +20,7 @@ const getUserDetailsRoute = require("./routes/getUserDetails");
 const addCommentRoute = require("./routes/addComment");
 const getCommentsRoute = require("./routes/getComments");
 const getBlogComments = require("./routes/getBlogComments");
+const deleteComment = require("./routes/deleteComment");
 
 dotenv.config();
 
@@ -46,5 +47,6 @@ app.use("/api/user/get/data", getUserDetailsRoute);
 app.use("/api/blog/comment/add", addCommentRoute);
 app.use("/api/blog/comment/get", getCommentsRoute);
 app.use("/api/blog/comment/get", getBlogComments);
+app.use("/api/blog/comment/delete", deleteComment);
 
 app.listen(PORT, () => console.log("server running on port 5000"));
