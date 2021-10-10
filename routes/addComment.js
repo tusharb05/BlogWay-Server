@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
     $inc: { commentCount: 1 },
   });
   if (saved) {
-    const comments = await Comment.find({});
+    const comments = await Comment.find({ blogID: blogID });
     res.json({ comments, status: "updated" });
   } else {
     {
