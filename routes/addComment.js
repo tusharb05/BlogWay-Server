@@ -1,4 +1,5 @@
 const Comment = require("../models/Comment");
+const Blog = require("../models/Blog");
 const router = require("express").Router();
 
 router.post("/", async (req, res) => {
@@ -11,6 +12,9 @@ router.post("/", async (req, res) => {
   });
 
   const saved = await newComment.save();
+  const updated = await Blog.findByIdAndUpdate(blogID, {
+    $inc: { commentCount: 1 },
+  });
   if (saved) {
     const comments = await Comment.find({});
     res.json({ comments, status: "updated" });
